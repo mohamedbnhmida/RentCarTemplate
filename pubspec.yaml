@@ -1,0 +1,48 @@
+name: rent_car_dashboard
+description: "Renct Car Project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.3.4 <4.0.0"
+
+dependencies:
+  fl_chart: ^0.68.0
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1 
+  google_fonts: ^6.2.1
+  get: ^4.6.1  # State management library
+  dio: ^4.0.0  # HTTP client for API requests 
+  path_provider: ^2.0.6  
+
+  shared_preferences: ^2.2.3
+  flutter_launcher_icons: ^0.13.1
+  cached_network_image: ^3.3.1
+  image_picker: ^1.1.2
+  date_field: ^5.2.1
+  http_proxy: any
+  logger: ^2.4.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0 
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logo/ic_launcher.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/logo/ic_launcher.png"
+    background_color: "#FFFFFF"  
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/logo/
+    - assets/cars/
+    - assets/gif/
