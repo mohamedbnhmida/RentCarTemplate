@@ -1,6 +1,7 @@
  
-import 'package:rent_car_dashboard/ui/screens/dashboard_scene/widgets/theme_tabs.dart'; 
+import 'package:rent_car_dashboard/ui/widgets/sidemenu/theme_tabs.dart'; 
 import 'package:rent_car_dashboard/ui/controllers/navigation_controller.dart';
+import 'package:rent_car_dashboard/ui/widgets/app_logo.dart';
 import 'package:rent_car_dashboard/utils/app_routes.dart';
 import 'package:rent_car_dashboard/utils/responsive.dart';
 import 'package:rent_car_dashboard/utils/app_constants.dart';
@@ -30,26 +31,7 @@ class Sidebar extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(  horizontal: AppConstants.padding,
                     vertical: AppConstants.padding * 1.5,),
-              child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          AppConstants.logo, // Replace with your image path
-                          height: 48,
-                          width: 48,
-                        ),
-                        AppPadding.paddingW16,
-                        Text(
-                          'Rent a Car',
-                          style: GoogleFonts.poppins(
-                            textStyle: TextStyle(
-                              color: Color.lerp(AppColors.primaryPurple, AppColors.primary, 0.5),
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+              child: AppLogo(),
             ),AppPadding.paddingH24,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -112,7 +94,10 @@ class Sidebar extends StatelessWidget {
                     ),
                     ExpansionTile(
                       leading:
-                          SvgPicture.asset("assets/icons/diamond_light.svg"),
+                          SvgPicture.asset("assets/icons/diamond_light.svg",  colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
+                BlendMode.srcIn,
+              )),
                       title: Text(
                         "Products",
                         style: TextStyle(
@@ -143,7 +128,10 @@ class Sidebar extends StatelessWidget {
                     // Customers
                     ExpansionTile(
                       leading: SvgPicture.asset(
-                          "assets/icons/reload_light.svg"),
+                          "assets/icons/reload_light.svg",  colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
+                BlendMode.srcIn,
+              )),
                       title: Text(
                         "Customers",
                         style: TextStyle(
@@ -172,7 +160,10 @@ class Sidebar extends StatelessWidget {
                     ),
                     ExpansionTile(
                       leading:
-                          SvgPicture.asset("assets/icons/profile_circled_light.svg"),
+                          SvgPicture.asset("assets/icons/profile_circled_light.svg" , colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
+                BlendMode.srcIn,
+              )),
                       title: Text(
                         "Operations",
                         style: TextStyle(
@@ -182,6 +173,7 @@ class Sidebar extends StatelessWidget {
                       ),
                       children: [
                         MenuTile(
+                           isActive: controller.currentPage == DashboardNavigation.reservation,
                           isSubmenu: true,
                            activeIconSrc: "assets/icons/reservation_icon.svg",
                           inactiveIconSrc: "assets/icons/reservation_icon.svg",
@@ -191,6 +183,7 @@ class Sidebar extends StatelessWidget {
                           },
                         ),
                         MenuTile(
+                          isActive: controller.currentPage == DashboardNavigation.restitution,
                           isSubmenu: true,
                            activeIconSrc: "assets/icons/restitution_icon.svg",
                       inactiveIconSrc: "assets/icons/restitution_icon.svg",
@@ -269,7 +262,7 @@ class Sidebar extends StatelessWidget {
                     ],
                   ),
                   AppPadding.paddingH20,
-                  // const ThemeTabs(),
+                  const ThemeTabs(),
                   AppPadding.paddingH8,
                 ],
               ),

@@ -32,7 +32,7 @@ class MenuTile extends StatelessWidget {
           right: isSubmenu ? AppConstants.padding : 0),
       child: Container(
         decoration: BoxDecoration(
-          color: isActive ? AppColors.highlightLight : null,
+          color: isActive ? AppColors.highlightDark : null,
           borderRadius: BorderRadius.circular(AppConstants.borderRadius),
           boxShadow: [
             if (isActive)
@@ -58,7 +58,7 @@ class MenuTile extends StatelessWidget {
                   width: 24,
                   colorFilter: ColorFilter.mode(
                       isActive
-                          ? Theme.of(context).iconTheme.color!
+                          ? AppColors.textDark
                           : Theme.of(context).textTheme.bodyMedium!.color!,
                       BlendMode.srcIn),
                 )
@@ -67,7 +67,7 @@ class MenuTile extends StatelessWidget {
             title,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: isActive ? AppColors.titleLight : AppColors.textLight,
+              color: isActive ? AppColors.textDark : Theme.of(context).textTheme.bodyLarge!.color!,
             ),
           ),
           trailing: count != null

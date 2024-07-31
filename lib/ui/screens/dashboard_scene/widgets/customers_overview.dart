@@ -1,3 +1,4 @@
+import 'package:rent_car_dashboard/utils/app_extensions.dart';
 import 'package:rent_car_dashboard/utils/responsive.dart';
 import 'package:rent_car_dashboard/ui/widgets/avatar/customer_avaatar.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class CoustomersOverview extends StatelessWidget {
             ),
             AppPadding.paddingW16,
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {showSnackbar('Error', 'Please enter a valid email address',  SnackbarType.error);},
               child: Text(
                 Responsive.isMobile(context) ? 'Send' : "Send message",
               ),

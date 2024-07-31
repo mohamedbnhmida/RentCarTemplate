@@ -38,8 +38,9 @@ class _OverviewTabsState extends State<OverviewTabs>
     return Column(
       children: [
         Container(
-          decoration: const BoxDecoration(
-            color: AppColors.bgLight,
+          decoration:   BoxDecoration(
+           
+      color: Theme.of(context).scaffoldBackgroundColor,
             borderRadius:
                 BorderRadius.all(Radius.circular(AppConstants.borderRadius)),
           ),
@@ -48,11 +49,12 @@ class _OverviewTabsState extends State<OverviewTabs>
             dividerHeight: 0,
             padding: const EdgeInsets.symmetric(
                 horizontal: 0, vertical: AppConstants.padding),
-            indicator: const BoxDecoration(
+            indicator:   BoxDecoration(
               borderRadius: BorderRadius.all(
                 Radius.circular(AppConstants.borderRadius),
               ),
-              color: AppColors.bgSecondayLight,
+              
+      color: Theme.of(context).cardColor, 
             ),
             tabs: const [
               TabWithGrowth(

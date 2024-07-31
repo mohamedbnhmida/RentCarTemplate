@@ -1,25 +1,25 @@
 
 import 'package:rent_car_dashboard/ui/controllers/navigation_controller.dart';
+import 'package:rent_car_dashboard/ui/theme_controller.dart';
+import 'package:rent_car_dashboard/ui/widgets/sidemenu/icon_tile.dart';
 import 'package:rent_car_dashboard/utils/app_constants.dart';
 import 'package:rent_car_dashboard/utils/app_padding.dart';
+import 'package:rent_car_dashboard/utils/app_routes.dart';
 import 'package:rent_car_dashboard/utils/responsive.dart';
 import 'package:flutter/material.dart'; 
 import 'package:get/get.dart';
-
-import '../../../utils/app_colors.dart';
-import '../../../utils/app_routes.dart';
-import 'icon_tile.dart';
-import 'theme_icon_tile.dart';
+ 
 // SiderBar for Tablet mode 
-class TabSidebar extends StatelessWidget {
-    TabSidebar({super.key});
+class ChatTablet extends StatelessWidget {
+    ChatTablet({super.key});
   final NavigationController controller = Get.put(NavigationController());
+ final ThemeController themecontroller = Get.put(ThemeController()); // Initialize the theme controller
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 96,
-      color: Colors.white,
+      color: Theme.of(context).appBarTheme.backgroundColor,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -27,7 +27,28 @@ class TabSidebar extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
                 horizontal: AppConstants.padding,
                 vertical: AppConstants.padding * 1.5),
-            child: Image.asset(AppConstants.logo,height: 40,width: 40,),
+            child: Container(
+  decoration: BoxDecoration(
+    shape: BoxShape.circle,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.2),
+        spreadRadius: 2,
+        blurRadius: 5,
+        offset: Offset(0, 3), // changes position of shadow
+      ),
+    ],
+  ),
+  child: CircleAvatar(
+    backgroundColor: Colors.white,
+    radius: 25, // Adjust radius to fit the image
+    child: Image.asset(
+      AppConstants.logo, // Replace with your image path
+      height: 30,
+      width: 30 ,
+    ),
+  ),
+),
           ),
           AppPadding.paddingH16,
           Expanded(
@@ -95,7 +116,7 @@ class TabSidebar extends StatelessWidget {
                   ),
                    AppPadding.paddingH4,
                   IconTile(
-                    isActive: false,
+                    isActive: controller.currentPage == DashboardNavigation.restitution,
                     activeIconSrc: "assets/icons/restitution_icon.svg",
                     inactiveIconSrc: "assets/icons/restitution_icon.svg",
                     onPressed: () {
@@ -106,33 +127,7 @@ class TabSidebar extends StatelessWidget {
               );
 }),
             ),
-          ),
-          Column(
-            children: [
-              
-              const SizedBox(
-                width: 48,
-                child: Divider(thickness: 2),
-              ),
-              IconButton(
-          icon: Icon(Icons.settings, color: AppColors.textGrey),
-          onPressed: () { 
-          },
-        ),
-              AppPadding.paddingH4,
-              IconTile(
-                isActive: false,
-                activeIconSrc: "assets/icons/help_light.svg",
-                onPressed: () {},
-              ),
-              AppPadding.paddingH4,
-              // ThemeIconTile(
-              //   isDark: false,
-              //   onPressed: () {},
-              // ),
-              AppPadding.paddingH16,
-            ],
-          )
+          ), 
         ],
       ),
     );

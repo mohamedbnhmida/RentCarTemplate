@@ -1,8 +1,7 @@
 import 'package:rent_car_dashboard/ui/controllers/navigation_controller.dart';
 import 'package:rent_car_dashboard/ui/screens/login_scene/controller/login_controller.dart';
 import 'package:rent_car_dashboard/utils/responsive.dart';
-import 'package:rent_car_dashboard/ui/widgets/avatar/customer_rounded_avatar.dart';
-import 'package:rent_car_dashboard/ui/widgets/sidemenu/customer_info.dart';
+import 'package:rent_car_dashboard/ui/widgets/avatar/customer_rounded_avatar.dart'; 
 import 'package:rent_car_dashboard/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,8 +9,7 @@ import 'package:get/get.dart';
 
 import '../../utils/app_colors.dart';
 import '../../utils/app_constants.dart';
-import '../../utils/app_padding.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import '../../utils/app_padding.dart'; 
 class Header extends StatelessWidget {
     Header({super.key, required this.drawerKey});
 
@@ -24,7 +22,7 @@ class Header extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(
           horizontal: AppConstants.padding, vertical: AppConstants.padding),
-      color: AppColors.bgSecondayLight,
+       
       child: SafeArea(
         bottom: false,
         child: Row(
@@ -66,12 +64,23 @@ class Header extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [  
                     IconButton(
-                      onPressed: () {Get.toNamed(AppRoutes.messages);},
+                      onPressed: () {
+                          if (Responsive.isMobile(context)){
+                               Get.toNamed(AppRoutes.chats);
+                          }else{
+                              Get.toNamed(AppRoutes.messagesWeb);
+                          }
+                      
+                        },
                       icon: Badge(
                         isLabelVisible: true,
                         child:
-                            SvgPicture.asset("assets/icons/message_light.svg"),
+                            SvgPicture.asset("assets/icons/message_light.svg",    colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
+                BlendMode.srcIn,
+              ),),
                       ),
+                     
                     ),
                      if (!Responsive.isMobile(context))
                    AppPadding.paddingW16, 
@@ -82,8 +91,12 @@ class Header extends StatelessWidget {
                       icon: Badge(
                         isLabelVisible: true,
                         child: SvgPicture.asset(
-                            "assets/icons/notification_light.svg"),
+                            "assets/icons/notification_light.svg",    colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
+                BlendMode.srcIn,
+              ),),
                       ),
+                      color: Theme.of(context).iconTheme.color
                     ), 
                     
                      if (Responsive.isMobile(context))
@@ -113,11 +126,7 @@ Widget _buildProfileButton(LoginController controller) {
       PopupMenuItem<int>(
         value: 1,onTap: (){  
                   navcontroller.changePage(DashboardNavigation.profile);},
-        child: Theme(
-          data: ThemeData(
-            splashColor: Colors.transparent, // Remove splash color
-            highlightColor: Colors.transparent, // Remove highlight color
-          ),
+        
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
@@ -149,7 +158,7 @@ Widget _buildProfileButton(LoginController controller) {
             ),
           ),
         ),
-      ),
+       
       PopupMenuItem<int>(
         value: 2,   onTap: () async {
           await controller.logout();
@@ -172,8 +181,7 @@ Widget _buildProfileButton(LoginController controller) {
           ),
         ),
       ),
-    ],
-    color: Colors.white, // Transparent background for the menu
+    ],  // Transparent background for the menu
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(8.0), // Rounded corners for the entire menu
     ),

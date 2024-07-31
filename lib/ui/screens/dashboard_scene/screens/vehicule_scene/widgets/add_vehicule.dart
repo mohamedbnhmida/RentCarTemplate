@@ -16,8 +16,7 @@ class AddVehicleButton extends StatelessWidget {
           TextButton(
             onPressed: onPressed,
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black, backgroundColor: AppColors.bgSecondayLight, // Text color
-              shape: RoundedRectangleBorder(
+               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25), // Corner radius
               ),
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -26,9 +25,9 @@ class AddVehicleButton extends StatelessWidget {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.add, color: Colors.black),
+                Icon(Icons.add),
                 SizedBox(width: 8),
-                Text('Add', style: TextStyle(color: Colors.black)),
+                Text('Add'),
               ],
             ),
           ),

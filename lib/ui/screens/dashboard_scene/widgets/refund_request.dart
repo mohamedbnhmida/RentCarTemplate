@@ -17,8 +17,9 @@ class RefundRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: AppColors.bgSecondayLight,
+      decoration:   BoxDecoration(
+        
+      color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.all(
           Radius.circular(AppConstants.borderRadius),
         ),

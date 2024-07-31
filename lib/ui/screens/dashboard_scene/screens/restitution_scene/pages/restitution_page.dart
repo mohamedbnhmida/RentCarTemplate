@@ -39,8 +39,8 @@ class RestitutionPage extends StatelessWidget {
                 )
               : Container(
       padding: const EdgeInsets.all(AppConstants.padding),
-      decoration: const BoxDecoration(
-        color: AppColors.bgSecondayLight,
+      decoration:    BoxDecoration(
+        color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.all(
           Radius.circular(AppConstants.borderRadius),
         ),

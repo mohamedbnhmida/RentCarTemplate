@@ -41,8 +41,8 @@ class VehiculesItem extends StatelessWidget {
               iconSrc,
               height: 24,
               width: 24,
-              colorFilter: const ColorFilter.mode(
-                AppColors.titleLight,
+              colorFilter:   ColorFilter.mode(
+                 Theme.of(context).iconTheme.color! ,
                 BlendMode.srcIn,
               ),
             ),

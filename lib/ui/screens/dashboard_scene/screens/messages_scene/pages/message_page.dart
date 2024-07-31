@@ -2,6 +2,9 @@ import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_s
 import 'package:flutter/material.dart';
  
 import 'package:get/get.dart';
+import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/message_web_page.dart';
+import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/widgets/message_header.dart';
+import 'package:rent_car_dashboard/utils/responsive.dart';
 
 import '../widgets/message_bubble.dart';
  
@@ -12,19 +15,17 @@ class MessagePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Get.back(),
-        ),
-        title: Text('Messages', style: TextStyle(color: Colors.black)),
-      ),
-      backgroundColor: Colors.grey[200],
-      body: Padding(
+    return   Expanded(
+            child: Column(
+              children: [
+                MessageHeader(),
+                Expanded(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 1360),
+        child:  Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
         padding: const EdgeInsets.all(8.0),
-        child: Column(
+        child: Column(  
           children: [
             Expanded(
               child: Obx(() => ListView.builder(
@@ -38,21 +39,32 @@ class MessagePage extends StatelessWidget {
                     },
                   )),
             ),
-            _buildMessageInput(),
+            _buildMessageInput(context),
           ],
         ),
+      
+    )
       ),
-    );
+    )
+              ],
+            ),
+          ) 
+    
+    
+    
+    
+    
+   ;
   }
-Widget _buildMessageInput() {
+Widget _buildMessageInput(BuildContext context) {
   return SafeArea( 
     child: Center(
       child:ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 800),
         child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(15.0), // Rounded corners
         ),
         child: Padding(
@@ -84,4 +96,12 @@ Widget _buildMessageInput() {
     ),
   );
 }
+}
+class MessageMobilePage
+ extends StatelessWidget { 
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body:    (Responsive.isMobile(context)) ? MessagePage() : MessageWebPage());
+  }
 }

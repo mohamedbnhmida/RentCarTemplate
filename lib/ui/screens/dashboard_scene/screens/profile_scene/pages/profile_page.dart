@@ -39,8 +39,8 @@ class ProfilePage extends StatelessWidget {
                 )
               : Container(
       padding: const EdgeInsets.all(AppConstants.padding),
-      decoration: const BoxDecoration(
-        color: AppColors.bgSecondayLight,
+      decoration:   BoxDecoration(
+       color: Theme.of(context).cardColor,
         borderRadius: BorderRadius.all(
           Radius.circular(AppConstants.borderRadius),
         ),
@@ -130,7 +130,7 @@ class ProfileContent extends StatelessWidget {
     Obx(() => TextFormField(
       controller: controller.emailController,
       keyboardType: TextInputType.emailAddress,
-      decoration: InputDecoration(
+      decoration: InputDecoration(fillColor: Theme.of(context).scaffoldBackgroundColor,filled: true,
         prefixIcon: SvgPicture.asset(
           'assets/icons/mail_light.svg',
           height: 16,
@@ -158,7 +158,7 @@ class ProfileContent extends StatelessWidget {
     AppPadding.paddingH16,
     TextFormField(
       controller: controller.nameController,
-      decoration: InputDecoration(
+      decoration: InputDecoration(fillColor: Theme.of(context).scaffoldBackgroundColor,filled: true,
         prefixIcon: Icon(Icons.person),
         hintText: 'Your Name',
       ),
@@ -168,7 +168,7 @@ class ProfileContent extends StatelessWidget {
       controller: controller.passwordController,
       keyboardType: TextInputType.visiblePassword,
       obscureText: true,
-      decoration: InputDecoration(
+      decoration: InputDecoration(fillColor: Theme.of(context).scaffoldBackgroundColor,filled: true,
         prefixIcon: SvgPicture.asset(
           'assets/icons/lock_light.svg',
           height: 16,
@@ -183,7 +183,7 @@ class ProfileContent extends StatelessWidget {
       controller: controller.confirmPasswordController,
       keyboardType: TextInputType.visiblePassword,
       obscureText: true,
-      decoration: InputDecoration(
+      decoration: InputDecoration(fillColor: Theme.of(context).scaffoldBackgroundColor,filled: true,
         prefixIcon: SvgPicture.asset(
           'assets/icons/lock_light.svg',
           height: 16,

@@ -17,8 +17,9 @@ class ProductOverviews extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(AppConstants.padding),
-      decoration: const BoxDecoration(
-        color: AppColors.bgSecondayLight,
+      decoration:   BoxDecoration(
+         
+      color: Theme.of(context).cardColor,
         borderRadius:
             BorderRadius.all(Radius.circular(AppConstants.borderRadius)),
       ),

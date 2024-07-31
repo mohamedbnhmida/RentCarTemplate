@@ -1,5 +1,8 @@
+ 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; 
+import 'package:get/get.dart';
+import 'package:rent_car_dashboard/ui/theme_controller.dart';
+import 'package:rent_car_dashboard/utils/app_colors.dart'; 
 
 extension ToColorFilter on Color {
   ColorFilter? get toColorFilter {
@@ -36,9 +39,10 @@ void showSnackbar(String title, String message, SnackbarType type) {
       iconData = Icons.info;
       break;
   }
+ final ThemeController themecontroller = Get.put(ThemeController()); // Initialize the theme controller
 
-  Color textColor = Get.isDarkMode ? Colors.white : Colors.black;
-  Color snackBackgroundColor = Get.isDarkMode ? Colors.grey[850]!.withOpacity(0.7) : Colors.white;
+  Color textColor = themecontroller.isDarkTheme.value ? Colors.white : Colors.black;
+  Color snackBackgroundColor = themecontroller.isDarkTheme.value ? AppColors.bgSecondayDark : Colors.white;
 
   Get.snackbar(
     title,
@@ -47,14 +51,14 @@ void showSnackbar(String title, String message, SnackbarType type) {
     colorText: textColor,
     snackStyle: SnackStyle.FLOATING,
     borderRadius: 15,
-    boxShadows: [
+    boxShadows: themecontroller.isDarkTheme.value ? null : [
       BoxShadow(
         color: Colors.grey,
         blurRadius: 1,
         offset: Offset(1, 1),
         spreadRadius: 0,
       )
-    ],
+    ]  ,
     snackPosition: getSnackPosition(),
     maxWidth: 400,
     margin: EdgeInsets.all(20),

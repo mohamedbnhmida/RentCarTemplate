@@ -7,14 +7,13 @@ class NotificationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
+    return Card( 
       margin: EdgeInsets.symmetric(vertical: 8.0),
       child: ListTile(
-        leading: Icon(Icons.notifications, color: Colors.grey),
+        leading: Icon(Icons.notifications,  color: Theme.of(context).iconTheme.color),
         title: Text(
           'Notification Title',
-          style: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.bold),
+          style: GoogleFonts.lato(fontSize: 16, fontWeight: FontWeight.bold,color: Theme.of(context).textTheme.bodyLarge!.color),
         ),
         subtitle: Text(
           'This is a sample notification message.',
@@ -25,6 +24,7 @@ class NotificationItem extends StatelessWidget {
           style: GoogleFonts.lato(fontSize: 12, color: Colors.grey),
         ),
       ),
+      color: Theme.of(context).cardColor,
     );
   }
 }

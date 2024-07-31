@@ -10,16 +10,15 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: Icon(Icons.arrow_back, color: Theme.of(context).iconTheme.color),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('Notifications', style: GoogleFonts.lato(color: Colors.black, fontWeight: FontWeight.bold)),
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(color: Colors.black),
+        title: Text('Notifications', style: GoogleFonts.lato(color: Theme.of(context).textTheme.bodyLarge!.color, fontWeight: FontWeight.bold)), 
+      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView(
         padding: EdgeInsets.all(16.0),
         children: List.generate(20, (index) => NotificationItem()), // Generate dummy notifications

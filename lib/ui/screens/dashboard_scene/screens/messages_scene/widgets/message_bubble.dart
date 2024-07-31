@@ -1,5 +1,6 @@
  
 import 'package:flutter/material.dart';
+import 'package:rent_car_dashboard/utils/app_colors.dart';
   
 
 class MessageBubble extends StatelessWidget {
@@ -20,7 +21,7 @@ class MessageBubble extends StatelessWidget {
           margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-            color: isSender ? Colors.white : Color.fromARGB(255, 112, 181, 238),
+            color: isSender ?  Theme.of(context).cardColor : AppColors.primary,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(isSender ? 15 : 0),
               topRight: Radius.circular(isSender ? 0 : 15),
@@ -30,7 +31,7 @@ class MessageBubble extends StatelessWidget {
           ),
           child: Text(
             message,
-            style: TextStyle(color: isSender ? Colors.black : Colors.white),
+            style: TextStyle(color: isSender ? Theme.of(context).textTheme.bodyLarge!.color : Colors.white),
           ),
         ),
       ),

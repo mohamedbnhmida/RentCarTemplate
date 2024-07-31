@@ -58,7 +58,7 @@ class _AddCarPopupState extends State<AddCarPopup> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: AppColors.bgSecondayLight,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text('Add Vehicle'),
       content: SingleChildScrollView(
         child: Container(
@@ -72,13 +72,11 @@ class _AddCarPopupState extends State<AddCarPopup> {
                         width: 600,
                         height: 300,
                         decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.grey),
+                          color:Theme.of(context).cardColor,
+                          borderRadius: BorderRadius.circular(8), 
                         ),
                         child: Icon(
-                          Icons.add_a_photo,
-                          color: Colors.grey[600],
+                          Icons.add_a_photo, 
                           size: 50,
                         ),
                       ),
@@ -105,43 +103,43 @@ class _AddCarPopupState extends State<AddCarPopup> {
               AppPadding.paddingH24,
               TextField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Vehicle Name'),
+                decoration: InputDecoration(  hintText: 'Vehicle Name'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _priceController,
-                decoration: InputDecoration(labelText: 'Price'),
+                decoration: InputDecoration(hintText: 'Price'),
                 keyboardType: TextInputType.number,
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _colorController,
-                decoration: InputDecoration(labelText: 'Color'),
+                decoration: InputDecoration(hintText: 'Color'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _gearboxController,
-                decoration: InputDecoration(labelText: 'Gearbox'),
+                decoration: InputDecoration(hintText: 'Gearbox'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _fuelController,
-                decoration: InputDecoration(labelText: 'Fuel'),
+                decoration: InputDecoration(hintText: 'Fuel'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _brandController,
-                decoration: InputDecoration(labelText: 'Brand'),
+                decoration: InputDecoration(hintText: 'Brand'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _ratingController,
-                decoration: InputDecoration(labelText: 'Rating'),
+                decoration: InputDecoration(hintText: 'Rating'),
               ),
               AppPadding.paddingH16,
               TextField(
                 controller: _locationController,
-                decoration: InputDecoration(labelText: 'Location'),
+                decoration: InputDecoration(hintText: 'Location'),
               ),
               AppPadding.paddingH16,
             ],
@@ -175,7 +173,7 @@ class _AddCarPopupState extends State<AddCarPopup> {
           },
           child: Text(
             'Cancel',
-            style: TextStyle(color: Colors.blue),
+            style: TextStyle(color: Theme.of(context).textTheme.bodyLarge!.color),
           ),
           style: TextButton.styleFrom(
             foregroundColor: Colors.blue,

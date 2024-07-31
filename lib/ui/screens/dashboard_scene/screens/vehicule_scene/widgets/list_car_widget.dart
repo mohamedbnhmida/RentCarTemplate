@@ -38,117 +38,120 @@ class CarItemWidget extends StatelessWidget {
           width: double.maxFinite,
           child: Card(
             clipBehavior: Clip.antiAliasWithSaveLayer,
-            color: AppColors.bgSecondayLight,
+            color:Theme.of(context).scaffoldBackgroundColor,
             shadowColor: Colors.transparent,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(0.0),
-                  child: Image.asset(
-                    car.image,
-                    width: 80,
-                    height: 80,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: Image.asset(
+                      car.image,
+                      width: 80,
+                      height: 80,
+                    ),
                   ),
-                ),
-                SizedBox(width: 24),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        car.brand,
-                        style: TextStyle(
-                          color: Colors.grey,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500
-                        ),
-                      ),
-                      SizedBox(height: 10.0),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(Icons.circle, color: Colors.grey, size: 10),
-                          SizedBox(width: 5.0),
-                          Text(
-                            car.fuel,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(width: 5.0),
-                          Icon(Icons.circle, color: Colors.grey, size: 10),
-                          SizedBox(width: 5.0),
-                          Text(
-                            car.color,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10.0),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(Icons.star, color: Colors.yellow, size: 12),
-                          SizedBox(width: 5.0),
-                          Text(
-                            car.rating,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 14,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10.0),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Icon(Icons.location_on, color: Colors.grey, size: 12),
-                          SizedBox(width: 5.0),
-                          Text(
-                            car.location,
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
+                  SizedBox(width: 24),
+                  Padding(
                     padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${car.price}/weeks',
-                          textAlign: TextAlign.center,
+                          car.brand,
                           style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 14,
+                            color: Theme.of(context).textTheme.displayLarge!.color,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500
                           ),
                         ),
+                        SizedBox(height: 10.0),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(Icons.circle, color: Theme.of(context).textTheme.displayLarge!.color, size: 10),
+                            SizedBox(width: 5.0),
+                            Text(
+                              car.fuel,
+                              style: TextStyle(
+                                color: Theme.of(context).textTheme.displayLarge!.color,
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(width: 5.0),
+                            Icon(Icons.circle, color: Theme.of(context).textTheme.displayLarge!.color, size: 10),
+                            SizedBox(width: 5.0),
+                            Text(
+                              car.color,
+                              style: TextStyle(
+                                color: Theme.of(context).textTheme.displayLarge!.color,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10.0),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(Icons.star, color: Colors.yellow, size: 12),
+                            SizedBox(width: 5.0),
+                            Text(
+                              car.rating,
+                              style: TextStyle(
+                                color: Theme.of(context).textTheme.displayLarge!.color,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10.0),
+                        Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(Icons.location_on, color:Theme.of(context).textTheme.displayLarge!.color, size: 12),
+                            SizedBox(width: 5.0),
+                            Text(
+                              car.location,
+                              style: TextStyle(
+                                color: Theme.of(context).textTheme.displayLarge!.color,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '${car.price}/weeks',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Theme.of(context).textTheme.displayLarge!.color,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

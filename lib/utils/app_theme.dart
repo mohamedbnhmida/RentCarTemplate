@@ -7,11 +7,14 @@ class AppTheme {
   static ThemeData light(BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.bgLight,
+
+      appBarTheme: AppBarTheme(backgroundColor: AppColors.bgSecondayLight),
       drawerTheme: const DrawerThemeData(
         backgroundColor: AppColors.bgSecondayLight,
         surfaceTintColor: AppColors.bgSecondayLight,
       ),
       primaryColor: AppColors.primary,
+       cardColor: AppColors.bgSecondayLight,
       textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
           .apply(
               bodyColor: AppColors.titleLight,
@@ -21,7 +24,7 @@ class AppTheme {
             bodyMedium: const TextStyle(color: AppColors.textLight),
             bodySmall: const TextStyle(color: AppColors.textLight),
           ),
-      iconTheme: const IconThemeData(color: AppColors.iconLight),
+      iconTheme: const IconThemeData(color: AppColors.iconGrey),
       dividerColor: AppColors.highlightLight,
       dividerTheme: const DividerThemeData(
         thickness: 1,
@@ -52,22 +55,42 @@ class AppTheme {
           side: BorderSide(color: AppColors.highlightLight, width: 2),
         ),
       ),
+          textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.textLight,
+          padding: const EdgeInsets.symmetric(horizontal: AppConstants.padding, vertical: AppConstants.padding),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+          ),
+        ),
+      ),
       inputDecorationTheme: AppTextFormFieldTheme.lightInputDecorationTheme,
       expansionTileTheme:
           const ExpansionTileThemeData(shape: const RoundedRectangleBorder()),
       badgeTheme:
           BadgeThemeData(backgroundColor: AppColors.error, smallSize: 8),
+
+          popupMenuTheme: PopupMenuThemeData(
+        color: AppColors.bgSecondayLight,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        textStyle: const TextStyle(color: AppColors.textLight),
+      ),primaryTextTheme: TextTheme(headlineLarge: TextStyle(color: AppColors.primaryTextLight),headlineMedium:TextStyle(color: AppColors.secondaryTextLight) )
+  , textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.cursorColor,selectionColor: AppColors.selectionColor,selectionHandleColor: AppColors.cursorColor)
     );
   }
 
   static ThemeData dark(BuildContext context) {
     return ThemeData(
       scaffoldBackgroundColor: AppColors.bgDark,
+      appBarTheme: AppBarTheme(color: AppColors.bgSecondayDark),
       drawerTheme: const DrawerThemeData(
         backgroundColor: AppColors.bgSecondayDark,
         surfaceTintColor: AppColors.bgSecondayDark,
       ),
       primaryColor: AppColors.primary,
+       cardColor: AppColors.bgSecondayDark,
       textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
           .apply(
               bodyColor: AppColors.titleDark,
@@ -108,30 +131,43 @@ class AppTheme {
           side: BorderSide(color: AppColors.highlightDark, width: 2),
         ),
       ),
+          textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.textDark,
+          padding: const EdgeInsets.symmetric(horizontal: AppConstants.padding, vertical: AppConstants.padding),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppConstants.borderRadius),
+          ),
+        ),
+      ),
       inputDecorationTheme: AppTextFormFieldTheme.darkInputDecorationTheme,
       expansionTileTheme:
           const ExpansionTileThemeData(shape: const RoundedRectangleBorder()),
       badgeTheme:
           BadgeThemeData(backgroundColor: AppColors.error, smallSize: 8),
-    );
+          popupMenuTheme: PopupMenuThemeData(
+        color: AppColors.bgSecondayDark,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        textStyle: const TextStyle(color: AppColors.textDark),
+      ),primaryTextTheme: TextTheme(headlineLarge: TextStyle(color: AppColors.primaryTextDark),headlineMedium:TextStyle(color: AppColors.secondaryTextDark) )
+      , textSelectionTheme: TextSelectionThemeData(cursorColor: AppColors.cursorColor,selectionColor: AppColors.selectionColor,selectionHandleColor: AppColors.cursorColor)
+ );
   }
 }
-
 class AppTextFormFieldTheme {
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
     errorMaxLines: 3,
     prefixIconColor: AppColors.textLight,
-
     suffixIconColor: AppColors.textLight,
-    fillColor: AppColors.bgLight,
+    fillColor: AppColors.bgSecondayLight,
     filled: true,
-    // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
     labelStyle: const TextStyle().copyWith(color: AppColors.titleLight),
     hintStyle: const TextStyle(
       fontSize: 14.0,
     ).copyWith(color: AppColors.textGrey),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
-
     floatingLabelStyle:
         const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
@@ -140,19 +176,19 @@ class AppTextFormFieldTheme {
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: BorderSide.none,
+      borderSide: BorderSide.none, // No border
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: AppColors.iconGrey),
+      borderSide: BorderSide.none, // No border
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: AppColors.error),
+      borderSide: BorderSide.none, // No border
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 2, color: AppColors.error),
+      borderSide: BorderSide.none, // No border
     ),
   );
 
@@ -160,7 +196,8 @@ class AppTextFormFieldTheme {
     errorMaxLines: 3,
     prefixIconColor: AppColors.textLight,
     suffixIconColor: AppColors.textLight,
-    // constraints: const BoxConstraints.expand(height: TSizes.inputFieldHeight),
+    fillColor: AppColors.bgSecondayDark,
+    filled: true,
     labelStyle: const TextStyle().copyWith(color: AppColors.titleLight),
     hintStyle: const TextStyle().copyWith(color: AppColors.textGrey),
     errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
@@ -168,23 +205,24 @@ class AppTextFormFieldTheme {
         const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: BorderSide.none,
+      borderSide: BorderSide.none, // No border
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: AppColors.textLight),
+      borderSide: BorderSide.none, // No border
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: AppColors.iconLight),
+      borderSide: BorderSide.none, // No border
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 1, color: AppColors.error),
+      borderSide: BorderSide.none, // No border
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(AppConstants.inputFieldRadius),
-      borderSide: const BorderSide(width: 2, color: AppColors.error),
+      borderSide: BorderSide.none, // No border
     ),
+    
   );
 }

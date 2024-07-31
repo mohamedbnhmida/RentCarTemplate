@@ -39,7 +39,7 @@ class _IconTileState extends State<IconTile> {
         padding: const EdgeInsets.all(AppConstants.padding * 0.25),
         decoration: BoxDecoration(
             color: widget.isActive
-                ? AppColors.highlightLight
+                ? AppColors.highlightDark
                 : _isHover
                     ? AppColors.highlightLight.withOpacity(0.5)
                     : null,
@@ -48,7 +48,7 @@ class _IconTileState extends State<IconTile> {
                 ? [
                     BoxShadow(
                       color: AppColors.highlightLight.withOpacity(0.5),
-                      blurRadius: 10,
+                      blurRadius:2,
                       spreadRadius: 1,
                     )
                   ]
@@ -63,8 +63,8 @@ class _IconTileState extends State<IconTile> {
                   width: 24,
                   colorFilter: ColorFilter.mode(
                       widget.isActive
-                          ? Theme.of(context).iconTheme.color!
-                          : Theme.of(context).textTheme.bodyMedium!.color!,
+                          ?Colors.white
+                          : Theme.of(context).iconTheme.color!,
                       BlendMode.srcIn),
                 ),
               )
