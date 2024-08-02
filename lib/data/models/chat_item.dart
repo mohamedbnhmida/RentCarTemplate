@@ -9,7 +9,7 @@ class ChatItem {
 
 List<ChatItem> chatItems = [
   ChatItem(
-    avatarUrl: 'https://t4.ftcdn.net/jpg/03/83/25/83/360_F_383258331_D8imaEMl8Q3lf7EKU2Pi78Cn0R7KkW9o.jpg',
+    avatarUrl: 'https://demos.creative-tim.com/soft-ui-design-system/assets/img/team-3.jpg',
     name: 'John Doe',
     lastMessage: 'Hello, how are you?',
     date: '12:30 PM',

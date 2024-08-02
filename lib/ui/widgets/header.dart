@@ -1,4 +1,5 @@
 import 'package:rent_car_dashboard/ui/controllers/navigation_controller.dart';
+import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/notification_scene/widgets/notification_item.dart';
 import 'package:rent_car_dashboard/ui/screens/login_scene/controller/login_controller.dart';
 import 'package:rent_car_dashboard/utils/responsive.dart';
 import 'package:rent_car_dashboard/ui/widgets/avatar/customer_rounded_avatar.dart'; 
@@ -86,7 +87,11 @@ class Header extends StatelessWidget {
                    AppPadding.paddingW16, 
                     IconButton(
                       onPressed: () {
-                        Get.toNamed(AppRoutes.notification);
+                         if (Responsive.isMobile(context) || Responsive.isTablet(context) ) {
+          Get.toNamed(AppRoutes.notification);
+        } else {
+          showPopupMenu(context);
+        }
                         },
                       icon: Badge(
                         isLabelVisible: true,
@@ -187,3 +192,33 @@ Widget _buildProfileButton(LoginController controller) {
     ),
   );
 }
+  void showPopupMenu(BuildContext context) {
+    final RenderBox button = context.findRenderObject() as RenderBox;
+    final RenderBox overlay = Overlay.of(context).context.findRenderObject() as RenderBox;
+    final RelativeRect position = RelativeRect.fromLTRB(
+      overlay.size.width - 20.0 - button.size.width,
+      50,
+      90.0,
+      0.0,
+    );
+
+    showMenu(
+      context: context,
+      position: position,
+      items: [
+        PopupMenuItem<int>(
+          enabled: false,
+          child: Container(
+            width:500,
+            height: 400, // Adjust height as needed
+            child: ListView.builder(
+              itemCount: 20, // Generate 20 dummy notifications
+              itemBuilder: (context, index) {
+                return NotificationItem(index: index);
+              },
+            ),
+          ),
+        ),
+      ],
+    );
+  }

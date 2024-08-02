@@ -12,7 +12,11 @@ class ProfileController extends GetxController {
 
   final ImagePicker _picker = ImagePicker();
 var isLoading = true.obs;
-var isEditing = false.obs;
+  var isEditing = false.obs;
+
+  void toggleEditing() {
+    isEditing.value = !isEditing.value;
+  }
 
  
   @override

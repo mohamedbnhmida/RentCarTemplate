@@ -2,6 +2,7 @@ import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/notificati
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({Key? key}) : super(key: key);
 
@@ -15,13 +16,19 @@ class NotificationScreen extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: Text('Notifications', style: GoogleFonts.lato(color: Theme.of(context).textTheme.bodyLarge!.color, fontWeight: FontWeight.bold)), 
-      backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        title: Text(
+          'Notifications',
+          style: GoogleFonts.lato(
+            color: Theme.of(context).textTheme.bodyLarge!.color,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: ListView(
         padding: EdgeInsets.all(16.0),
-        children: List.generate(20, (index) => NotificationItem()), // Generate dummy notifications
+        children: List.generate(20, (index) => NotificationItem(index: index)), // Generate dummy notifications
       ),
     );
   }

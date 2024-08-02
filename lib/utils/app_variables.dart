@@ -3,6 +3,6 @@
 class AppVariables {
   static String authToken = '';
   static String email = '';
-  static bool isLoggedIn = true;
+  static bool isLoggedIn = false;
    static String refreshToken = '';
 }

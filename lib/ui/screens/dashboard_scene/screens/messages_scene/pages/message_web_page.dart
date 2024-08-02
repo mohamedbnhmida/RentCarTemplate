@@ -1,4 +1,5 @@
 import 'package:rent_car_dashboard/ui/screens/content_area.dart';
+import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/chat_tablet.dart';
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/chats_page.dart';
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/message_page.dart';
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/widgets/message_header.dart';
@@ -21,8 +22,8 @@ class MessageWebPage extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
-          if (!Responsive.isMobile(context)) ChatsPage(),
-          // if (Responsive.isTablet(context))  TabSidebar(),
+          if (Responsive.isWeb(context)) ChatsPage(),
+          if (Responsive.isTablet(context))  ChatTablet(),
             MessagePage()
         ],
       ),

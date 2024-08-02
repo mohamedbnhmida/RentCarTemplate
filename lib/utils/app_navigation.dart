@@ -2,9 +2,7 @@
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/chats_page.dart';
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/message_page.dart';
 import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/messages_scene/pages/message_web_page.dart';
-import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/notification_scene/pages/notification.dart';
-import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/profile_scene/pages/profile_page.dart';
-import 'package:rent_car_dashboard/ui/widgets/sidemenu/web_sidebar.dart';
+import 'package:rent_car_dashboard/ui/screens/dashboard_scene/screens/notification_scene/pages/notification.dart'; 
 import 'package:rent_car_dashboard/utils/app_routes.dart';
 import 'package:get/get.dart';
 

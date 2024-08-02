@@ -9,8 +9,7 @@ import 'package:rent_car_dashboard/utils/app_variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
  void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-
+  WidgetsFlutterBinding.ensureInitialized(); 
   await loadFromSharedPrefs();
   runApp( MainApp());
 } 
@@ -19,7 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart';
    final prefs = await SharedPreferences.getInstance();
    AppVariables.authToken = prefs.getString('authToken') ?? '';
    AppVariables.email = prefs.getString('email') ?? '';
-      //  AppVariables.isLoggedIn = prefs.getBool('isLoggedin') ?? true;
+     AppVariables.isLoggedIn = prefs.getBool('isLoggedin') ?? false;
    AppVariables.refreshToken = prefs.getString('refreshToken') ?? '';
  } 
 

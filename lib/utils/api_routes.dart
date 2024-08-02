@@ -2,7 +2,7 @@
 import 'package:flutter/foundation.dart';
 
 class ApiRoutes {
-  static const String baseUrl = 'http://197.244.169.45/Coriolis.RentCars.WebApi';
+  static const String baseUrl = 'http://197.244.214.251/Coriolis.RentCars.WebApi';
   static const String getUserbyEmail = '/api/users/email/';
   static const String login = '/api/token';
   static const String registration = '/api/users';
