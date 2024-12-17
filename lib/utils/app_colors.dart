@@ -4,12 +4,17 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const bgLight = Color(0xFFFFFFFF);
   static const bgDark = Color(0xFF171821);
-  static const bgSecondayLight = Color(0xFFFAFAFA);
+  
+  static const bgSecondayLight = Color.fromARGB(255, 255, 252, 252);
   static const bgSecondayDark = Color(0xFF21222d);
   static const titleLight = Color(0xFF272B30);
   static const titleDark = Color(0xFFFFFFFF);
+
+
   static const textLight = Color(0xFF6F767E);
   static const textDark = Color(0xFFFFFFFF);
+
+
   static const textGrey = Color(0xFF9A9FA5);
   static const iconLight = Color(0xFF272B30);
   static const iconDark = Color(0xFFFFFFFF);

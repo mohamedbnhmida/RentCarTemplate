@@ -12,3 +12,4 @@ import 'package:get/get.dart';
     Get.changeThemeMode(theme);
   }
 }
+
