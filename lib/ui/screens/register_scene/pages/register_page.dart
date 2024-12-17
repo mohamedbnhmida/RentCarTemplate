@@ -44,29 +44,29 @@ class RegisterPage extends StatelessWidget {
                                
                           ),
                           SizedBox(height: 24),
-                          // Text(
-                          //   'Sign up with Open account',
-                          //   style: Theme.of(context)
-                          //       .textTheme
-                          //       .titleSmall
-                          //       ?.copyWith(fontWeight: FontWeight.bold),
-                          // ),
-                          // SizedBox(height: 24),
-                          // SocialLoginButton(
-                          //   onGoogleLoginPressed: () {},
-                          //   onMicrosoftLoginPressed: () {},
-                          // ),
-                          // SizedBox(height: 24),
-                          // Divider(),
-                          // SizedBox(height: 24),
-                          // Text(
-                          //   'Or continue with email address',
-                          //   style: Theme.of(context)
-                          //       .textTheme
-                          //       .titleSmall
-                          //       ?.copyWith(fontWeight: FontWeight.bold),
-                          // ),
-                          // SizedBox(height: 16),
+                          Text(
+                            'Sign up with Open account',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 24),
+                          SocialLoginButton(
+                            onGoogleLoginPressed: () {},
+                            onMicrosoftLoginPressed: () {},
+                          ),
+                          SizedBox(height: 24),
+                          Divider(),
+                          SizedBox(height: 24),
+                          Text(
+                            'Or continue with email address',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall
+                                ?.copyWith(fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(height: 16),
             
                           // Email TextField
                           Obx(() => TextFormField(
