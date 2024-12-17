@@ -15,7 +15,7 @@ This is a responsive dashboard template for a RentCar web application built usin
 🖼️ Preview 
  
 Dashboard Page
-![Dashboard Page](/Preview/dashboard.png)
+![Dashboard Page](/preview/dashboard.png)
 
 Sign up Page
 ![Sign up Page](/preview/register.png)
