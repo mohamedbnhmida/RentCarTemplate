@@ -7,6 +7,7 @@ import 'package:rent_car_dashboard/utils/app_variables.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../utils/app_extensions.dart';
+
 class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -29,21 +30,18 @@ class LoginController extends GetxController {
     isEmailValid.value = GetUtils.isEmail(email);
   }
 
-  
-
-  
-
   void login() async {
     bool isPasswordValid = passwordController.text.isNotEmpty;
     String email = emailController.text;
     String password = passwordController.text;
     if (!isEmailValid.value) {
-      showSnackbar('Error', 'Please enter a valid email address', SnackbarType.error);
+      showSnackbar(
+          'Error', 'Please enter a valid email address', SnackbarType.error);
       return;
     }
 
     if (!isPasswordValid) {
-      showSnackbar('Error', 'Password cannot be empty',  SnackbarType.error);
+      showSnackbar('Error', 'Password cannot be empty', SnackbarType.error);
       return;
     }
 
@@ -51,20 +49,22 @@ class LoginController extends GetxController {
       isLoading(true);
       status(LoginStatus.loading);
 
-      user.value = (await _loginUseCase.login(email, password));
-      
+      // user.value = (await _loginUseCase.login(email, password));
+
+      // Simulate a successful login without API
       status(LoginStatus.success);
       _saveLoginResponse();
-      showSnackbar('Success', 'Login Successful',  SnackbarType.success);
+      showSnackbar(
+          'Success', 'Login Successful (Bypass)', SnackbarType.success);
       Get.toNamed(AppRoutes.home);
     } catch (e) {
       if (e is Error) {
-        errorMessage(e.obs.string);
+        errorMessage(e.toString().obs.string);
       } else {
         errorMessage('Login failed');
       }
       status(LoginStatus.error);
-      showSnackbar('Error', 'Login Failed',  SnackbarType.error);
+      showSnackbar('Error', 'Login Failed', SnackbarType.error);
     } finally {
       isLoading(false);
     }
@@ -75,10 +75,9 @@ class LoginController extends GetxController {
     // await prefs.setString('email', user.email);
     await prefs.setString('authToken', AppVariables.authToken);
     await prefs.setString('refreshToken', AppVariables.refreshToken);
- await prefs.setBool('isLoggedin', true);
-
+    await prefs.setBool('isLoggedin', true);
   }
- 
+
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('authToken');
@@ -86,7 +85,7 @@ class LoginController extends GetxController {
     await prefs.remove('authToken');
     await prefs.remove('refreshToken');
     await prefs.setBool('isLoggedin', false);
-    
+
     user.value = null;
   }
 }

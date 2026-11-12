@@ -1,4 +1,12 @@
- 
+<img src="docs/banner.png" alt="Rentify" width="100%">
+
+**▶ Live demo: [mohamedbenhmida-rentcar.web.app](https://mohamedbenhmida-rentcar.web.app)**
+
+<p align="center">
+  <img src="docs/screenshots/rentcar_desktop.png" alt="Rentify on desktop" width="70%">
+  <img src="docs/screenshots/rentcar_mobile.png" alt="Rentify on mobile" width="24%">
+</p>
+
 # 🚗 Responsive RentCar Dashboard Template
 
 This is a responsive dashboard template for a RentCar web application built using Flutter. The template is designed for seamless user experience across various screen sizes, making it perfect for web, tablet, and desktop platforms.
